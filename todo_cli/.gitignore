@@ -1,0 +1,6 @@
+# .gitignore
+__pycache__/
+*.pyc
+.env
+# You can choose to ignore storage.json if you do not want to commit task data:
+# storage.json
