@@ -1,0 +1,19 @@
+# todo_cli/storage.py
+# Simple JSON storage for todo_cli
+import json
+import os
+
+STORAGE_FILENAME = "storage.json"  # as specified in the SDLC
+
+def load_todos():
+    if not os.path.exists(STORAGE_FILENAME):
+        return []
+    with open(STORAGE_FILENAME, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return []
+
+def save_todos(todos):
+    with open(STORAGE_FILENAME, "w", encoding="utf-8") as f:
+        json.dump(todos, f, indent=2, ensure_ascii=False)
